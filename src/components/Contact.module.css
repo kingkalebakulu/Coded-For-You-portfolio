@@ -1,0 +1,250 @@
+.contact {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 6vw 3rem;
+  background: #000000;
+  overflow: hidden;
+}
+
+.gridLines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 45%, black 20%, transparent 85%);
+  mask-image: radial-gradient(ellipse 65% 60% at 50% 45%, black 20%, transparent 85%);
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  bottom: -220px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 480px;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.18) 0%, rgba(34, 211, 238, 0) 70%);
+}
+
+.glowSecondary {
+  position: absolute;
+  top: -160px;
+  right: -140px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.16) 0%, rgba(167, 139, 250, 0) 70%);
+}
+
+.bubble {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 780px;
+  padding: 4rem 3.5rem;
+  border-radius: 44px;
+  background: #101318;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6), 0 1px 0 0 rgba(255, 255, 255, 0.05) inset;
+}
+
+.bubbleTail {
+  position: absolute;
+  bottom: -22px;
+  left: 68px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 26px solid transparent;
+  border-top: 34px solid #101318;
+  transform-origin: top center;
+  animation: tailWobble 5s ease-in-out infinite;
+}
+
+@keyframes tailWobble {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(4deg); }
+}
+
+.bubbleDot1,
+.bubbleDot2 {
+  position: absolute;
+  border-radius: 50%;
+  background: #101318;
+}
+
+.bubbleDot1 {
+  bottom: -34px;
+  left: 52px;
+  width: 16px;
+  height: 16px;
+}
+
+.bubbleDot2 {
+  bottom: -44px;
+  left: 34px;
+  width: 9px;
+  height: 9px;
+}
+
+.eyebrow {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #22d3ee;
+  margin: 0 0 1.75rem;
+}
+
+.heading {
+  position: relative;
+  z-index: 1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: #f1f5f9;
+  max-width: 18ch;
+  margin: 0 0 1.25rem;
+  line-height: 1.15;
+}
+
+.subtext {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.72);
+  max-width: 32rem;
+  margin: 0 0 2.5rem;
+}
+
+.ctaRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 100px;
+  background: rgba(72, 253, 141, 0.641);
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.primaryCta:hover {
+  background: #00f54a;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.18);
+  transform: scale(1.04);
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e2e8f0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.secondaryCta:hover {
+  border-color: rgba(34, 211, 238, 0.5);
+  color: #22d3ee;
+}
+
+@media (max-width: 900px) {
+  .contact {
+    height: 100dvh;
+    min-height: 100dvh;
+    justify-content: flex-start;
+    padding: 5.5rem 6vw 2.5rem;
+    overflow: hidden;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .bubble {
+    padding: 2.25rem 1.75rem 2.5rem;
+    border-radius: 32px;
+  }
+
+  .bubbleTail {
+    left: 40px;
+    border-left: 10px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 24px solid #101318;
+    bottom: -16px;
+  }
+
+  .bubbleDot1 {
+    left: 30px;
+    bottom: -25px;
+    width: 11px;
+    height: 11px;
+  }
+
+  .bubbleDot2 {
+    left: 18px;
+    bottom: -32px;
+    width: 7px;
+    height: 7px;
+  }
+
+  .heading {
+    font-size: clamp(1.5rem, 7vw, 2.1rem);
+    max-width: 100%;
+  }
+
+  .subtext {
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.9rem;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    width: 100%;
+    justify-content: center;
+  }
+}

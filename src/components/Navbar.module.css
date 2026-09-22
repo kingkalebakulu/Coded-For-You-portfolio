@@ -1,0 +1,307 @@
+/* ==========================================================================
+   GLOBAL CONTAINER WRAPPER
+   ========================================================================== */
+.navWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none; /* Prevents layout containers from blocking page clicks */
+}
+
+.navWrapper.scrolled {
+  padding: 0.8rem 2rem;
+}
+
+.desktopPillDock,
+.mobileHeaderPill {
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   DESKTOP FLOATING PILL DOCK DESIGN SYSTEM
+   ========================================================================== */
+.desktopPillDock {
+  display: flex;
+  align-items: center;
+  background: rgba(14, 34, 39, 0.92); /* Premium deep dark emerald translucent glass, kept opaque enough to hold contrast over dark sections */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 100px;
+  padding: 0.45rem 0.6rem 0.45rem 1.6rem;
+  box-shadow: 
+    0 1px 0px 0 rgba(255, 255, 255, 0.08) inset,
+    0 20px 40px rgba(0, 0, 0, 0.6);
+  gap: 1.8rem; /* Expanded gaps to naturally support the longer item tray */
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem; 
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logoImg {
+  height: 30px; 
+  width: auto;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.logoText {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.logoWord {
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.logoWord:hover {
+  color: #22d3ee;
+}
+
+.verticalDivider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.desktopInlineLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.inlineLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.9rem;
+  color: #94a3b8;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.inlineLink:hover {
+  color: #ffffff;
+}
+
+.linkLabel {
+  position: relative;
+  z-index: 1;
+  transition: color 0.25s ease;
+}
+
+.hoverPill {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  z-index: 0;
+}
+
+.pillCtaBtn {
+  background: #e4e8e5;
+  color: #020d10;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillCtaBtn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+  background: #00f54a;
+}
+
+.mobileHeaderPill {
+  display: none;
+}
+
+/* ==========================================================================
+   MINI FLOATING PILL DOCK SYSTEM (MAX-WIDTH: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navWrapper {
+    justify-content: stretch;
+    padding: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+  }
+
+  .navWrapper.scrolled .mobileHeaderPill {
+    background: rgba(2, 13, 16, 0.85) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .desktopPillDock {
+    display: none;
+  }
+
+  /* Edge-to-edge slim bar, no floating pill */
+  .mobileHeaderPill {
+    display: flex;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-bottom: 1px solid transparent;
+    border-radius: 0 !important;
+    padding: 1.1rem 1.4rem !important;
+    box-shadow: none;
+    margin: 0;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .mobileHeaderPill .logoText {
+    position: static;
+    transform: none;
+  }
+
+  .logoImg {
+    height: 26px !important;
+  }
+
+  .logoText {
+    font-size: 0.88rem !important;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+
+  .burgerBtn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   FULLSCREEN MOBILE EXPANSION OVERLAY SYSTEM
+   ========================================================================== */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 13, 16, 0.55);
+  z-index: 9998;
+}
+
+.overlayMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: auto;
+  width: min(84vw, 380px);
+  height: 100vh;
+  background: #020d10;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 6.5rem 1.8rem 2.5rem;
+  z-index: 9999;
+}
+
+.menuLinks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding: 1rem 1.5rem;
+  background: #e4e8e5;
+  color: #020d10;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menuCta:hover {
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 0;
+  color: #e2e8f0;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.menuLink:last-child {
+  border-bottom: none !important;
+}
+
+.menuLink:active {
+  color: #22d3ee;
+  padding-left: 8px;
+}
+
+.linkIndex {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #22d3ee;
+  letter-spacing: 0.05em;
+}
+
+.linkLabelMobile {
+  flex: 1;
+}
+
+.linkIcon {
+  opacity: 0.4;
+  color: #00f5d4;
+}

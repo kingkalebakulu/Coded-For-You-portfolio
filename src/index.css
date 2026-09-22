@@ -1,0 +1,107 @@
+/* Local Font Linkage Configuration */
+@font-face {
+  font-family: 'StudioCustomFont';
+  src: url('./studio-font.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *::before, *::after { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+:root {
+  /* RESTORED: Deep dark green/petrol abyss background */
+  --navy: #020d10;          
+
+  /* NEUTRALIZED: Containers are now strictly clear glass or deep matte black */
+  --navy-card: rgba(255, 255, 255, 0.02);   /* Crystal clear glass for image containers */
+  --navy-card2: rgba(10, 10, 10, 0.88);     /* Solid matte dark black for non-image containers */
+  --navy-light: rgba(255, 255, 255, 0.05);   /* Clear highlight glass */
+  
+  /* Absolute Neutral Typography System */
+  --silver: #8ba2a6;        
+  --silver-light: #c4dbe0;  
+  --silver-dim: #162a30;    
+  --white: #ffffff;         
+  --accent: #ffffff;
+  
+  /* Typography Configuration */
+  --font-display: 'StudioCustomFont', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body { 
+  background: var(--navy); 
+  color: var(--white); 
+  font-family: var(--font-body); 
+  overflow-x: hidden; 
+  -webkit-font-smoothing: antialiased; 
+}
+
+img { 
+  display: block; 
+  max-width: 100%; 
+}
+
+a { 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+button { 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+}
+
+/* Global Glassmorphic Layout Styles */
+[class*="card"] {
+  backdrop-filter: blur(24px) saturate(100%);
+  -webkit-backdrop-filter: blur(24px) saturate(100%);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+[class*="card"]:hover {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 12px 50px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar { 
+  width: 4px; 
+}
+::-webkit-scrollbar-track { 
+  background: var(--navy); 
+}
+::-webkit-scrollbar-thumb { 
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 2px; 
+}
+
+/* Smooth fade-and-rise entrance for the website */
+.portfolio-entrance {
+  animation: cinematicReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes cinematicReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px); /* Subtle upward drift */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
