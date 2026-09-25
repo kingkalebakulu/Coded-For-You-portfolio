@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Check, MessageCircle } from 'lucide-react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import services from '../data/services'
+import usePageMeta from '../hooks/usePageMeta'
 import styles from './ServiceDetail.module.css'
 
 const fadeUp = {
@@ -15,6 +16,8 @@ export default function ServiceDetail() {
   const { slug } = useParams()
   const index = services.findIndex((s) => s.slug === slug)
   const service = services[index]
+
+  usePageMeta(service ? service.title : null, service ? service.tagline : null)
 
   if (!service) {
     return <Navigate to="/" replace />

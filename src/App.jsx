@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ServiceDetail from './components/ServiceDetail';
 import Preloader from './components/Preloader';
+import usePageMeta from './hooks/usePageMeta';
 
 // React Router's client-side navigation doesn't auto-scroll to a #hash
 // the way a real page load does. This restores that behavior for links
@@ -49,6 +50,11 @@ function ScrollToHash() {
 }
 
 function Home() {
+  usePageMeta(
+    null,
+    'Coded For You — custom-coded websites, web apps, and ongoing support built by Kaleb Akulu. Fast, clean, no page builders.'
+  );
+
   return (
     <>
       <Navbar />

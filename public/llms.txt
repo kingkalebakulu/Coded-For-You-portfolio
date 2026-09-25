@@ -1,0 +1,18 @@
+# Coded For You
+
+> Custom-coded websites, web apps, and ongoing digital services built by Kaleb Akulu — no page builders, no templates.
+
+Kaleb Akulu is an 18-year-old self-taught developer who has been building websites since age 14 and taking on real client work since age 16. Coded For You is his freelance web development studio.
+
+## Services
+
+- Web Development — custom-coded sites and apps: /services/web-development
+- Video Clipping — long-form content cut into short-form clips: /services/video-clipping
+- Social Media Management — content calendars and community engagement: /services/social-media-management
+- Lead Generation — funnels and lead capture systems: /services/lead-generation
+- SEO Optimization — technical SEO and site speed: /services/seo-optimization
+
+## Contact
+
+- WhatsApp: https://wa.me/27849057756
+- Email: codedfouryou@gmail.com
